@@ -13,7 +13,7 @@ function MyReservations() {
       {
         id: 1,
         name: 'ㅁㅁㅁ',
-        date: '2025-05-11',
+        date: '2025-05-19',
         time: '점심',
         people: 3,
         table: { label: '4', position: 'window' },
@@ -22,7 +22,7 @@ function MyReservations() {
       {
         id: 2,
         name: 'ㅁㅁㅁ',
-        date: '2025-05-09',
+        date: '2025-05-30',
         time: '저녁',
         people: 2,
         table: { label: '2', position: 'hall' },

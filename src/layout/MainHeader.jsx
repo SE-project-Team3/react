@@ -22,7 +22,7 @@ const MainHeader = () => {
     <div className="header-outer">
       <div className="header-inner">
       <header className="main-header">
-        <div className="left-section">
+        <div className="header-left-section">
           <img src={logo} alt="logo" className="logo-image" onClick={() => navigate('/home')} />
           <nav className="nav-menu">
             <a href="/home">예약</a>
@@ -38,7 +38,6 @@ const MainHeader = () => {
               {menuOpen && (
                 <div className="dropdown-menu">
                   <div onClick={() => navigate('/my-reservations')}>예약 확인</div>
-                  <div onClick={() => navigate('/my-info')}>내 정보</div>
                   <div onClick={handleLogout}>로그아웃</div>
                 </div>
               )}

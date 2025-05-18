@@ -7,7 +7,7 @@ import './Home.css';
 const HomePage = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState('');
-  const [peopleCount, setPeopleCount] = useState(2);
+  const [peopleCount, setPeopleCount] = useState(1);
   const now = new Date();
   const navigate = useNavigate();
 
@@ -64,21 +64,33 @@ const HomePage = () => {
 
         <h2>예약 인원</h2>
         <div className="people-select">
-          <button onClick={() => setPeopleCount((prev) => Math.max(1, prev - 1))}>-</button>
+          <button
+          onClick={() => setPeopleCount((prev) => prev - 1)}
+          disabled={peopleCount <= 1}
+          className={peopleCount <= 1 ? 'disabled' : ''}>-</button>
           <span>{peopleCount}</span>
-          <button onClick={() => setPeopleCount((prev) => prev + 1)}>+</button>
+          <button
+          onClick={() => setPeopleCount((prev) => prev + 1)}
+          disabled={peopleCount >= 8}
+          className={peopleCount >= 8 ? 'disabled' : ''}>+</button>
         </div>
 
         <button
         className="check-availability"
-        onClick={() => navigate('/view-table', {
+        onClick={() => {
+          if (!selectedTime) {
+            alert('예약 시간을 선택하세요.');
+            return;
+
+          }
+        navigate('/view-table', {
           state: {
             date: selectedDate.toISOString().split('T')[0],
             time: selectedTime,
             people: peopleCount,
           },
         })
-        }>
+        }}>
         예약 가능 테이블 보기
         </button>
       </div>

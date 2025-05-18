@@ -8,7 +8,7 @@ function ReservationForm() {
   const location = useLocation();
   const table = location.state?.table;
   const navigate = useNavigate();
-  const initialPeople = location.state?.people || 1;
+  const initialPeople = location.state?.people ?? 1;
 
   const [formData, setFormData] = useState({
     name: '',
@@ -26,9 +26,6 @@ function ReservationForm() {
     }
     if (savedPhone) {
       setFormData((prev) => ({ ...prev, phone: savedPhone })); 
-    }
-    if (table) {
-      setFormData((prev) => ({ ...prev, people: 1 }));
     }
   }, [table]);
   

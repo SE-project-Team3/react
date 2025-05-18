@@ -38,7 +38,7 @@ function ViewTable() {
 
         <div className="table-grid">
           {tables.map((table) => {
-            const canUse = Number(table.label) >= people;
+            const canUse = Number(table.label) >= Number(people);
             return (
             <div
             key={table.id}
